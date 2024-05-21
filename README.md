@@ -344,3 +344,121 @@ Date:   Mon May 20 18:21:11 2024 +0200
 
 commit 729a140271b6232904c4c4399078cb6b9c6e41e4
 ```
+### Question 8
+
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git checkout -b ft/branch
+Switched to a new branch 'ft/branch'
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ touch test5.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git add test5.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)
+$ git commit -m "implement test 5"
+[ft/branch d923edd] implement test 5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test5.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)
+$ git log --oneline
+d923edd (HEAD -> ft/branch) implement test 5
+bd5572d (origin/main, main) solve conflict
+ef8165f updated README file
+6de25ec added the test4.md file
+729a140 create third and fourth files create third file
+62f9c42 chore: Create initial file
+cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+3033012 added the test4.md file
+3cf99b4 create Third and fourth files
+bc269c4 added the test4.md file
+f6eec5c chore: Create another file
+3abf696 chore: Create initial file
+b801c44 first commit
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git cherry-pick --no-commit f6eec5c 
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git diff
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git diff f6eec5c
+diff --git a/README.md b/README.md
+index 84a0d28..8f11b92 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,346 @@
+-# theGym_git_Advanced
++# Git Advanced Exercises
++## Question 1
++
++```bash 
++echo "# theGym_git_Advanced" >> README.md
++git init
++git add README.md
++git commit -m "first commit"
++git branch -M main
++git remote add origin https://github.com/Gasorekibo/theGym_git_Advanced.git
++git push -u origin main
++$ touch test{1..4}.md
++git add test1.md && git commit -m "chore: Create initial file"
++git add test2.md && git commit -m "chore: Create another file"
++git add test3.md && git commit -m "chore: Create third and fourth files"
++[main 3abf696] chore: Create initial file
++ 1 file changed, 0 insertions(+), 0 deletions(-)
++ create mode 100644 test1.md
++[main f6eec5c] chore: Create another file
++ 1 file changed, 0 insertions(+), 0 deletions(-)
++ create mode 100644 test2.md
++[main 324ad16] chore: Create third and fourth files
++ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git show commit f6eec5c
+fatal: ambiguous argument 'commit': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/branch)        
+$ git show f6eec5c
+commit f6eec5c6ef42c401a38dcaa0c765fbb6349eb183
+Author: Gasorekibo <m.gasore@alustudent.com>
+Date:   Mon May 20 18:21:10 2024 +0200
+
+    chore: Create another file
+
+diff --git a/test2.md b/test2.md
+new file mode 100644
+index 0000000..e69de29
+```
+
+### Question 9
+
+```bash
+git log --graph
+* commit d923edd545b89378edc29ec00f45b8bebe71f1b7 (HEAD -> ft/branch)
+| Author: Gasorekibo <m.gasore@alustudent.com>
+| Date:   Tue May 21 14:42:44 2024 +0200
+| 
+|     implement test 5
+|   
+*   commit bd5572d2663f8f39a6a30b1815155165d83cf63d (origin/main, main)
+|\  Merge: ef8165f cc08534
+| | Author: Gasorekibo <m.gasore@alustudent.com>
+| | Date:   Tue May 21 14:40:01 2024 +0200
+| | 
+| |     solve conflict
+| |   
+| *   commit cc08534f65fc17508b096fa7fcba3ce2ac22ad21
+| |\  Merge: 3033012 bc269c4
+| | | Author: Gasorekibo <m.gasore@alustudent.com>
+| | | Date:   Tue May 21 12:27:07 2024 +0200
+| | | 
+| | |     Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+| | |
+| | * commit bc269c4e6623a6d946f38a98a07c89725196c039
+```
