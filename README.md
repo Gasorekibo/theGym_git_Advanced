@@ -462,3 +462,218 @@ git log --graph
 | | |
 | | * commit bc269c4e6623a6d946f38a98a07c89725196c039
 ```
+
+# Git Advanced Exercises Part 2
+
+## Question 1
+```bash
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git branch
+  ft/branch
+* ft/new-feature
+  main
+```
+
+## Question 2
+```bash
+$ touch feature.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git add feature.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git commit -m "implemented core functionfunctionality for new feature"
+[ft/new-feature 857d061] implemented core functionfunctionality for new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+```
+
+## Question 3
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git checkout main
+Switched to branch 'main'
+M       README.md
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git branch
+  ft/branch
+  ft/new-feature
+* main
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ touch readme.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git add readme.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git commit -m "update project readme"
+[main 209c04f] update project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+ ```
+
+ ## Question 5
+
+ ```bash
+ git checkout ft/new-feature
+Switched to branch 'ft/new-feature'
+M       README.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git merge main
+Merge made by the 'ort' strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-feature)
+$ git checkout main
+Switched to branch 'main'
+M       README.md
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git branch -D ft/new-feature
+Deleted branch ft/new-feature (was e940c07).
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git branch
+  ft/branch
+* main
+```
+## Question 6
+```bash
+ git checkout -b ft/new-branch-from-commit 279701b
+Switched to a new branch 'ft/new-branch-from-commit'
+M       README.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git branch
+  ft/branch
+* ft/new-branch-from-commit
+  main
+```
+
+## Question 7
+```bash
+git merge main
+Updating 279701b..209c04f
+Fast-forward
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git status
+On branch ft/new-branch-from-commit
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+## Question 8
+```bash
+git log --oneline
+dea32cd (HEAD -> ft/new-branch-from-commit) update project readme
+279701b (origin/main) done with git advanced part1
+bd5572d solve conflict
+ef8165f updated README file
+6de25ec added the test4.md file
+729a140 create third and fourth files create third file
+62f9c42 chore: Create initial file
+cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+3033012 added the test4.md file
+3cf99b4 create Third and fourth files
+bc269c4 added the test4.md file
+f6eec5c chore: Create another file
+3abf696 chore: Create initial file
+b801c44 first commit
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git rebase main
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git log --oneline
+8270f81 (HEAD -> ft/new-branch-from-commit) update project readme
+209c04f (main) update project readme
+279701b (origin/main) done with git advanced part1
+bd5572d solve conflict
+ef8165f updated README file
+6de25ec added the test4.md file
+729a140 create third and fourth files create third file
+62f9c42 chore: Create initial file
+cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+3033012 added the test4.md file
+3cf99b4 create Third and fourth files
+bc269c4 added the test4.md file
+f6eec5c chore: Create another file
+3abf696 chore: Create initial file
+b801c44 first commit
+```
+## Question 9
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git branch
+  ft/branch
+* ft/new-branch-from-commit
+  main
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/new-branch-from-commit)
+$ git branch -m ft/new-branch-from-commit ft/improved-branch-name
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/improved-branch-name)
+$ git branch
+  ft/branch
+* ft/improved-branch-name
+  main
+```
+
+## Question 10
+
+```bash
+git log --oneline
+d13d019 (HEAD -> ft/improved-branch-name) update project readme
+209c04f (main) update project readme
+279701b (origin/main) done with git advanced part1
+bd5572d solve conflict
+ef8165f updated README file
+6de25ec added the test4.md file
+729a140 create third and fourth files create third file
+62f9c42 chore: Create initial file
+cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+3033012 added the test4.md file
+3cf99b4 create Third and fourth files
+bc269c4 added the test4.md file
+f6eec5c chore: Create another file
+3abf696 chore: Create initial file
+b801c44 first commit
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/improved-branch-name)
+$ git checkout cc08534
+Note: switching to 'cc08534'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
+```
