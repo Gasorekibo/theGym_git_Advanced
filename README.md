@@ -22,7 +22,6 @@ git add test3.md && git commit -m "chore: Create third and fourth files"
 [main 324ad16] chore: Create third and fourth files
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 test3.md
-
 Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
 $ git status
 On branch main
