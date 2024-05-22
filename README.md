@@ -892,3 +892,11 @@ remote: Resolving deltas: 100% (6/6), completed with 2 local objects.
 To https://github.com/Gasorekibo/theGym_git_Advanced.git
    279701b..5105a15  main -> main
 ```
+## Question 10
+```bash
+ git pull
+Updating 3c7a557..6baed3e
+Fast-forward
+ README.md | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+```
