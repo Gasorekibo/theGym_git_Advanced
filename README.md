@@ -677,3 +677,219 @@ Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at cc08534 Merge branch 'main' of https://github.com/Gasorekibo/theGym_git_Advanced
 ```
+
+# Git Advanced Exercises Part 3
+
+## Question 1
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test4.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git stash
+Saved working directory and index state WIP on main: 06d19c3 update project readme
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+```
+
+## Question 2
+```bash
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git stash pop
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+        modified:   test4.md
+
+no changes added to commit (use "git add" and/or "git commit -a")    
+Dropped refs/stash@{0} (e63f7e2ededad15f0645b4a24397952843a6a045)    
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+        modified:   test4.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+## Question 3 Conflict
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git checkout ft/improved-branch-name 
+Switched to branch 'ft/improved-branch-name'
+M       README.md
+Your branch is up to date with 'origin/ft/improved-branch-name'.
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/improved-branch-name)
+$ git add test4.md 
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/improved-branch-name)
+$ git commit -m 'modified to cause conflict'
+[ft/improved-branch-name 87e573b] modified to cause conflict
+ 1 file changed, 1 insertion(+)
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (ft/improved-branch-name)
+$ git checkout main
+Switched to branch 'main'
+M       README.md
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git merge ft/improved-branch-name
+Auto-merging test4.md
+CONFLICT (content): Merge conflict in test4.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git$ git merge ft/improved-branch-name 
+Already up to date.
+```
+
+## Question 6 .gitignore
+```bash
+$ ls
+README.md  readme.txt  test1.md  test2.md  test3.md  test4.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)  $ ls
+README.md  readme.txt  test1.md  test2.md  test3.md  test4.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+
+
+$ touch .gitignore
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ ls
+README.md  readme.txt  test1.md  test2.md  test3.md  test4.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ ls -al
+total 42
+drwxr-xr-x 1 Lenovo 197121     0 May 22 17:17 ./
+drwxr-xr-x 1 Lenovo 197121     0 May 20 18:08 ../
+drwxr-xr-x 1 Lenovo 197121     0 May 22 17:09 .git/
+-rw-r--r-- 1 Lenovo 197121     0 May 22 17:17 .gitignore
+-rw-r--r-- 1 Lenovo 197121 26327 May 22 17:09 README.md
+-rw-r--r-- 1 Lenovo 197121    33 May 22 16:28 readme.txt
+-rw-r--r-- 1 Lenovo 197121     0 May 21 12:42 test1.md
+-rw-r--r-- 1 Lenovo 197121     0 May 21 12:42 test2.md
+-rw-r--r-- 1 Lenovo 197121     0 May 21 12:57 test3.md
+-rw-r--r-- 1 Lenovo 197121    42 May 22 17:08 test4.md
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ cat .gitignore
+/temp
+```
+## Question 7
+```bash
+git branch
+  ft/branch
+  ft/improved-branch-name
+* main
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag v1.0
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag
+v1.0
+```
+## Question 8 Listing tag and delete
+```bash
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag v1.1
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag
+v1.0
+v1.1
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag -d v1.1
+Deleted tag 'v1.1' (was 7f881af)
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git tag
+v1.0
+```
+
+## Question 9 Pushing local to remote repo
+
+```bash
+ git status
+On branch main
+Your branch is ahead of 'origin/main' by 5 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git add .
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git commit -m "pushing to remote repo"
+[main 5105a15] pushing to remote repo
+ 2 files changed, 176 insertions(+)
+ create mode 100644 .gitignore
+
+Lenovo@Mugwaneza-Gasore MINGW64 ~/OneDrive/Desktop/The Gym/git-advanced (main)
+$ git push
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (11/11), 1.79 KiB | 914.00 KiB/s, done.
+Total 11 (delta 6), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (6/6), completed with 2 local objects.
+To https://github.com/Gasorekibo/theGym_git_Advanced.git
+   279701b..5105a15  main -> main
+```
